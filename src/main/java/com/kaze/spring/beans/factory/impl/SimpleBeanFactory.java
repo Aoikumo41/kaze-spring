@@ -98,7 +98,7 @@ public class SimpleBeanFactory implements BeanFactory {
         return new String[0];
     }
 
-    public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition)
+    public void registerBeanDeffinition(String beanName, BeanDefinition beanDefinition)
             throws Exception {
         if(!StringUtils.hasText(beanName)) throw new IllegalArgumentException("beanName不允许为空");
         if(null == beanDefinition) throw new IllegalArgumentException("BeanDefinition不允许为null");
@@ -121,11 +121,11 @@ public class SimpleBeanFactory implements BeanFactory {
     }
 
     //获取原始名称
-    public String canonicalName(String name) {
+    private String canonicalName(String name) {
         String canonicalName = name;
         // Handle aliasing...
         String resolvedName;
-        //获取别名链的原始名称  eg: 原始名称  <-- 别名A, 别明A <-- 别名B
+        //获取别名链的原始名称  eg: 原始名称 <-- 别名A, 别名A <-- 别名B
         do {
             resolvedName = this.aliasMap.get(canonicalName);
             if (resolvedName != null) {
