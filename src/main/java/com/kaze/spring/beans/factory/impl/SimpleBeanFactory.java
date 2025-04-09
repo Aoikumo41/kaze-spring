@@ -2,6 +2,7 @@ package com.kaze.spring.beans.factory.impl;
 
 import com.kaze.spring.beans.config.BeanDefinition;
 import com.kaze.spring.beans.factory.BeanFactory;
+import com.kaze.spring.util.Assert;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.BeansException;
@@ -98,10 +99,10 @@ public class SimpleBeanFactory implements BeanFactory {
         return new String[0];
     }
 
-    public void registerBeanDeffinition(String beanName, BeanDefinition beanDefinition)
+    public void registerBeanDefinition(String beanName, BeanDefinition beanDefinition)
             throws Exception {
-        if(!StringUtils.hasText(beanName)) throw new IllegalArgumentException("beanName不允许为空");
-        if(null == beanDefinition) throw new IllegalArgumentException("BeanDefinition不允许为null");
+        Assert.hasText(beanName,"beanName不允许为空");
+        Assert.notNull(beanDefinition,"BeanDefinition不允许为null");
         BeanDefinition existingDefinition = this.beanDefinitionMap.get(beanName);
         if(null!= existingDefinition) throw new IllegalArgumentException(
             "无法为bean 'beanName' 注册 BeanDefinition[" + beanDefinition + "],"+

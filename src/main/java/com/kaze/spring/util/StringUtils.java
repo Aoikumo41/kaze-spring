@@ -1,4 +1,4 @@
-package com.kaze.spring.utils;
+package com.kaze.spring.util;
 
 import org.springframework.lang.Nullable;
 
