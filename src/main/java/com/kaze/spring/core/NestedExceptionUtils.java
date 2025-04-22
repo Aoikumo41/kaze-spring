@@ -2,6 +2,7 @@ package com.kaze.spring.core;
 
 /**
  * 嵌套异常的工具类
+ * 提供给NestedRuntimeException, NestedCheckedException用
  */
 public abstract class NestedExceptionUtils {
 
